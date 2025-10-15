@@ -1,8 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <numeric>
-#include <string>
-#include <cstdlib>
+#include <iostream>               
+#include <vector>                // for std::vector and .begin()/.end()
+#include <numeric>              // for std::accumulate
+#include <string>              // for std::string and .length()
+#include <cstdlib>            // for std::abs
+#include <algorithm>         // for std::sort
 
 class Solution {
 private:
@@ -45,6 +46,30 @@ public:
         }
 
         return count;
+    }
+
+    bool canMakeArithmeticProgression(std::vector<int>& arr) {
+        std::sort(arr.begin(), arr.end());
+        int x;
+        x = arr[1] - arr[0];
+        for (int i = 1; i < arr.size(); i++) {
+            if (!((arr[i] - arr[i - 1]) == x))
+                return false;
+        }
+        return true;
+    }
+
+    int arraySign(std::vector<int>& nums) {
+        int x{ 1 };
+        for (int i = 0; i < nums.size(); i++)
+            x *= nums[i];
+        if (x > 0)
+            return 1;
+        else if (x < 0)
+            return -1;
+        else
+            return 0;
+
     }
 
 };
