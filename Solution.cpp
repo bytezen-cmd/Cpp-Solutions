@@ -12,6 +12,48 @@ class Solution {
 private:
 public:
 
+    int getMaximumGenerated(int n) {
+        std::vector<int> genArr;
+        for (int i = 0; i < n + 1; i++) {
+            if (i < 2)
+                genArr.push_back(i);
+            else if (i % 2 == 0)
+                genArr.push_back(genArr[i / 2]);
+            else if (i % 2 != 0)
+                genArr.push_back(genArr[i / 2] + genArr[i / 2 + 1]);
+
+        }
+        int comp{ 0 };
+        for (int i = 0; i < genArr.size(); i++)
+            if (comp < genArr[i])
+                comp = genArr[i];
+        return comp;
+    }
+
+    int minStartValue(std::vector<int>& nums) {
+        int some{ 1 };
+
+        label:
+            int curr{ some };
+            for (int i = 0; i < nums.size(); i++) {
+                curr += nums[i];
+                if (curr < 1) {
+                    some += 1;
+                    goto label;
+                }
+            }
+        return some;
+    }
+
+    std::vector<std::string> stringMatching(std::vector<std::string>& words) {
+        std::vector<std::string> r;
+        for (int i = 0; i < words.size(); i++)
+            for (int j = 0; j < words.size(); j++)
+                if ((j != i) && (words[i].find(words[j]) != std::string::npos) && (!(find(r.begin(), r.end(), words[j]) != r.end())))
+                    r.push_back(words[j]);
+        return r;
+    }
+
     std::string firstPalindrome(std::vector<std::string>& words) {
         for (int i = 0; i < words.size(); i++) {
             std::string x = words[i];
