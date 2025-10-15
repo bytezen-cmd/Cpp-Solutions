@@ -4,10 +4,51 @@
 #include <string>              // for std::string and .length()
 #include <cstdlib>            // for std::abs
 #include <algorithm>         // for std::sort
+#include <sstream>          // for std::stringstream
 
 class Solution {
 private:
 public:
+    std::string mergeAlternately(std::string word1, std::string word2) {
+        std::string word = "";
+        int x = std::max(word1.length(), word2.length());
+        for (int i = 0; i < x; i++) {
+            if (i < word1.length() && i < word2.length()) {
+                word += word1[i];
+                word += word2[i];
+            }
+            else if (i < word1.length() && i >= word2.length())
+                word += word1[i];
+            else if (i >= word1.length() && i < word2.length())
+                word += word2[i];
+        }
+        return word;
+    }
+
+    bool isPrefixString(std::string s, std::vector<std::string>& words) {
+        int length = s.length();
+        std::string joined_s = "";
+        for (int i = 0; i < words.size(); i++) {
+            joined_s += words[i];
+            if (joined_s == s)
+                return true;
+        }
+        return false;
+    }
+
+    int isPrefixOfWord(std::string sentence, std::string searchWord) {
+        int length = searchWord.length();
+        std::stringstream sentence_t(sentence);
+        std::string word;
+        int count{ 0 };
+        while (sentence_t >> word) {
+            count += 1;
+            if (word.substr(0, length) == searchWord)
+                return count;
+        }
+        return -1;
+    }
+
     int findMiddleIndex(std::vector<int>& nums) {
         for (int i = 0; i < nums.size(); i++) {
             int sumLeft = std::accumulate(nums.begin(), nums.begin() + i, 0);
