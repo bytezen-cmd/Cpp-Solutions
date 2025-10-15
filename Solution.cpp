@@ -3,12 +3,32 @@
 #include <numeric>              // for std::accumulate
 #include <string>              // for std::string and .length()
 #include <cstdlib>            // for std::abs
-#include <algorithm>         // for std::sort
+#include <algorithm>         // for std::sort and std::reverse
 #include <sstream>          // for std::stringstream
+#include <limits>          // for std::numeric_limits<double>
+#include <cmath>          // for std::pow 
 
 class Solution {
 private:
 public:
+
+    std::string firstPalindrome(std::vector<std::string>& words) {
+        for (int i = 0; i < words.size(); i++) {
+            std::string x = words[i];
+            std::reverse(x.begin(), x.end());
+            if (x == words[i])
+                return words[i];
+        }
+        return "";
+    }
+
+    bool isPerfectSquare(int num) {
+        for (long int i = 0; i < (num / 2) + 2; i++)
+            if (i * i == (long int)num)
+                return true;
+        return false;
+    }
+
     std::string mergeAlternately(std::string word1, std::string word2) {
         std::string word = "";
         int x = std::max(word1.length(), word2.length());
