@@ -3,8 +3,8 @@
 int main() {
 	int w;
 	std::cin >> w;
-	bool condition;
-	for (int i = 0; i <= w; i++)
+	bool condition = false;
+	for (int i = 1; i < w; i++)
 		if (i % 2 == 0 && (w - i) % 2 == 0)
 			condition = true;
 	if (condition)
