@@ -10,7 +10,7 @@
 #include <bitset>
 #include <cctype>
 
-class Solution {
+class LeetcodeSolution {
 private:
 public:
 

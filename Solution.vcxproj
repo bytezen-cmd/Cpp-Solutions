@@ -123,8 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="codeforces-watermelon.cpp" />
-    <ClCompile Include="Solution.cpp" />
+    <ClCompile Include="codeforces-solutions.cpp" />
+    <ClCompile Include="leetcode-solutions.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

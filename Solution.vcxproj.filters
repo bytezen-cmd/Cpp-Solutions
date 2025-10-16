@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Solution.cpp">
+    <ClCompile Include="leetcode-solutions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="codeforces-watermelon.cpp">
+    <ClCompile Include="codeforces-solutions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
