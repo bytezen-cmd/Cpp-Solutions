@@ -4,6 +4,90 @@
 #include <algorithm>
 
 namespace CodeforcesSolution {
+
+	void word() {
+		std::string word;
+		std::cin >> word;
+		int caps{ 0 }, lows{ 0 };
+		for (int i = 0; i < word.size(); i++) {
+			if (word[i] <= 'Z' && word[i] >= 'A')
+				caps += 1;
+			else
+				lows += 1;
+		}
+		if (caps > lows)
+			for (int i = 0; i < word.size(); i++) {
+				if (!(word[i] <= 'Z' && word[i] >= 'A'))
+					word[i] -= 32;				
+			}
+		else
+			for (int i = 0; i < word.size(); i++) {
+				if ((word[i] <= 'Z' && word[i] >= 'A'))
+					word[i] += 32;
+			}
+		std::cout << word;
+	
+	}
+	void wordCapitalization() {
+		std::string word;
+		std::cin >> word;
+
+		if (word[0] <= 'Z' && word[0] >= 'A')
+			std::cout << word;
+		else {
+			word[0] -= 32;
+			std::cout << word;
+		}
+	
+	}
+
+	void helpfulMaths() {
+		std::string question;
+		std::cin >> question;
+
+		std::vector<int> numbers;
+		std::string answer = "";
+
+		for (int i = 0; i < question.size(); i++) 
+			if (question[i] == '1')
+				numbers.push_back(1);
+		
+		for (int i = 0; i < question.size(); i++)
+			if (question[i] == '2')
+				numbers.push_back(2);
+
+		for (int i = 0; i < question.size(); i++)
+			if (question[i] == '3')
+				numbers.push_back(3);
+
+		for (int i = 0; i < numbers.size(); i++) {
+			if (i != numbers.size() - 1) {
+				answer += '0' + numbers[i];
+				answer += '+';
+			}
+			else
+				answer += '0' + numbers[i];
+		}
+		std::cout << answer;
+	}
+	void boyOrGirl() {
+		std::string name;
+		std::cin >> name;
+		int alphabets[26];
+		int count = 0;
+		for (int i = 0; i < 26; i++)
+			alphabets[i] = 0;
+		for (int j = 0; j < name.size(); j++)
+			alphabets[name[j] - 'a'] += 1;
+		for (int k = 0; k < 26; k++)
+			if (alphabets[k] > 0)
+				count += 1;
+		if ((count % 2) == 0)
+			std::cout << "CHAT WITH HER!";
+		else
+			std::cout << "IGNORE HIM!";
+	}
+
 	void watermelon() {
 		int w;
 		std::cin >> w;
@@ -106,7 +190,7 @@ namespace CodeforcesSolution {
 	}
 };
 int main() {
-	CodeforcesSolution::nextRound();
+	CodeforcesSolution::word();
 	return 0;
 
 }
