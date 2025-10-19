@@ -42,9 +42,9 @@ namespace CodewarsSolution {
         temp << value;
         std::string s = temp.str();
         int length = s.length();
-        int sum{ 0 };
+        size_t sum = 0;
         for (int i = 0; i < length; i++) {
-            sum += std::pow(((int)s[i] - '0'), length);
+            sum += std::pow(((size_t)s[i] - '0'), length);
         }
         return (sum == value);
     }
