@@ -317,8 +317,3 @@ public:
     }
 
 };
-
-int main() 
-{
-
-}

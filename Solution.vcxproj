@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Codeforces-Solution.cpp" />
+    <ClCompile Include="Codewars-Solution.cpp" />
     <ClCompile Include="Leetcode-Solution.cpp" />
   </ItemGroup>
   <ItemGroup>

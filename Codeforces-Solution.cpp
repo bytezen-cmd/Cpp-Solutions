@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 
+
 namespace CodeforcesSolution {
 
 	void word() {
@@ -189,8 +190,8 @@ namespace CodeforcesSolution {
 
 	}
 };
+
 int main() {
 	CodeforcesSolution::word();
 	return 0;
-
 }
