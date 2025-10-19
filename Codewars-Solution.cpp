@@ -8,6 +8,19 @@
 
 namespace CodewarsSolution {
 
+    unsigned int countBits(unsigned long long n) {
+        unsigned int count{ 0 };
+        while (n != 0) {
+            if (n % 2 == 1) {
+                n /= 2;
+                count += 1;
+            }
+            else
+                n /= 2;
+        }
+        return count;
+    }
+
     bool is_pangram(const std::string& s) {
         int charCount[26] = { 0 };
 
