@@ -9,10 +9,95 @@
 #include <cmath>          // for std::pow 
 #include <bitset>
 #include <cctype>
+#include <unordered_set>
 
 class LeetcodeSolution {
 private:
+    std::vector<int> happySequence;
 public:
+
+    bool isPowerOfTwo(int n) {
+        if (n < 1) {
+            return false;
+        }
+        while (n != 1) {
+            if ((n % 2) != 0)
+                return false;
+            else
+                n /= 2;
+        }
+        return true;
+    }
+
+    bool isAnagram(std::string s, std::string t) {
+        int sCount[26], tCount[26];
+
+        for (int i = 0; i < 26; i++) {
+            sCount[i] = 0;
+            tCount[i] = 0;
+        }
+
+        for (int j = 0; j < s.size(); j++)
+            sCount[s[j] - 'a'] += 1;
+
+        for (int k = 0; k < t.size(); k++)
+            tCount[t[k] - 'a'] += 1;
+
+        for (int l = 0; l < 26; l++)
+            if (sCount[l] != tCount[l])
+                return false;
+        return true;
+    }
+
+    bool containsDuplicate(std::vector<int>& nums) {
+        std::unordered_set<int> number(nums.begin(), nums.end());
+        return (nums.size() != number.size());
+    }
+
+    bool isHappy(int n) {
+        while ((n != 1) && !(std::find(happySequence.begin(), happySequence.end(), n) != happySequence.end())) {
+            happySequence.push_back(n);
+            std::string temp = std::to_string(n);
+            int sum{ 0 };
+            for (int i = 0; i < temp.length(); i++)
+                sum += std::pow((int)temp[i] - '0', 2);
+            n = sum;
+        }
+        if (n == 1)
+            return true;
+        else
+            return false;
+    }
+
+    int hammingWeight(int n) {
+        std::string binaryString = std::bitset<32>(n).to_string();
+        int count{ 0 };
+        for (int i = 0; i < binaryString.size(); i++)
+            if (binaryString[i] == '1')
+                count += 1;
+        return count;
+
+    }
+
+    bool isPowerOfFour(int n) {
+        if (n < 1)
+            return false;
+        while (n != 1) {
+            if ((n % 4) == 0)
+                n /= 4;
+            else
+                return false;
+        }
+        return true;
+    }
+
+    void reverseString(std::vector<char>& s) {
+        for (int i = 0; i < s.size() / 2; i++) {
+            char temp = s[i];
+            s[i] = s[s.size() - i - 1];
+            s[s.size() - i - 1] = temp;
+        }
+    }
 
     bool isBoomerang(std::vector<std::vector<int>>& points) {
         double area;
