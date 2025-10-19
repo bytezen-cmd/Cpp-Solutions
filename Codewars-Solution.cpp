@@ -27,7 +27,9 @@ namespace CodewarsSolution {
         for (char c : s) {
             if (std::isalpha(c)) {
                 c = std::tolower(c);
-                charCount[c - 'a'] += 1;
+                unsigned int x = (unsigned int)(c - 'a');
+                if (x < 25)
+                    charCount[x] += 1;
             }
         }
 
@@ -54,10 +56,10 @@ namespace CodewarsSolution {
         std::stringstream temp;
         temp << value;
         std::string s = temp.str();
-        int length = s.length();
+        size_t length = s.length();
         size_t sum = 0;
         for (int i = 0; i < length; i++) {
-            sum += std::pow(((size_t)s[i] - '0'), length);
+            sum += (size_t)std::pow(((size_t)s[i] - '0'), length);
         }
         return (sum == value);
     }

@@ -153,7 +153,7 @@ namespace CodeforcesSolution {
 	}
 
 	void wrongSubtraction() {
-		int n, k;
+		size_t n, k;
 		std::cin >> n >> k;
 		while (k != 0) {
 			if (n % 10 == 0) {

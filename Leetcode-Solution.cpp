@@ -11,6 +11,7 @@
 #include <cctype>
 #include <unordered_set>
 
+
 class LeetcodeSolution {
 private:
     std::vector<int> happySequence;
@@ -36,7 +37,7 @@ public:
 
     }
 
-    int firstUniqChar(std::string s) {
+    size_t firstUniqChar(std::string s) {
         int freq[26];
         for (int i = 0; i < 26; i++)
             freq[i] = 0;
@@ -44,7 +45,7 @@ public:
             freq[c - 'a'] += 1;
         for (char c : s)
             if (freq[c - 'a'] == 1)
-                return s.find(c);
+                return (size_t)s.find(c);
         return -1;
     }
 
@@ -102,10 +103,10 @@ public:
         while ((n != 1) && !(std::find(happySequence.begin(), happySequence.end(), n) != happySequence.end())) {
             happySequence.push_back(n);
             std::string temp = std::to_string(n);
-            int sum{ 0 };
+            size_t sum{ 0 };
             for (int i = 0; i < temp.length(); i++)
-                sum += std::pow((int)temp[i] - '0', 2);
-            n = sum;
+                sum += (size_t)std::pow((size_t)temp[i] - '0', 2);
+            n = (int)sum;
         }
         if (n == 1)
             return true;
@@ -214,7 +215,7 @@ public:
 
     std::string mergeAlternately(std::string word1, std::string word2) {
         std::string word = "";
-        int x = std::max(word1.length(), word2.length());
+        size_t x = std::max(word1.length(), word2.length());
         for (int i = 0; i < x; i++) {
             if (i < word1.length() && i < word2.length()) {
                 word += word1[i];
@@ -229,7 +230,7 @@ public:
     }
 
     bool isPrefixString(std::string s, std::vector<std::string>& words) {
-        int length = s.length();
+        size_t length = s.length();
         std::string joined_s = "";
         for (int i = 0; i < words.size(); i++) {
             joined_s += words[i];
@@ -240,7 +241,7 @@ public:
     }
 
     int isPrefixOfWord(std::string sentence, std::string searchWord) {
-        int length = searchWord.length();
+        size_t length = searchWord.length();
         std::stringstream sentence_t(sentence);
         std::string word;
         int count{ 0 };
