@@ -16,6 +16,38 @@ private:
     std::vector<int> happySequence;
 public:
 
+    std::vector<std::string> fizzBuzz(int n) {
+        std::vector<std::string> answer;
+        for (int i = 1; i < (n + 1); i++) {
+            if ((i % 15) == 0)
+                answer.push_back("FizzBuzz");
+            else if ((i % 5) == 0)
+                answer.push_back("Buzz");
+            else if ((i % 3) == 0)
+                answer.push_back("Fizz");
+            else {
+                std::stringstream temp;
+                temp << i;
+                std::string temp2 = temp.str();
+                answer.push_back(temp2);
+            }
+        }
+        return answer;
+
+    }
+
+    int firstUniqChar(std::string s) {
+        int freq[26];
+        for (int i = 0; i < 26; i++)
+            freq[i] = 0;
+        for (char c : s)
+            freq[c - 'a'] += 1;
+        for (char c : s)
+            if (freq[c - 'a'] == 1)
+                return s.find(c);
+        return -1;
+    }
+
     bool isPowerOfTwo(int n) {
         if (n < 1) {
             return false;
@@ -52,6 +84,18 @@ public:
     bool containsDuplicate(std::vector<int>& nums) {
         std::unordered_set<int> number(nums.begin(), nums.end());
         return (nums.size() != number.size());
+    }
+
+    bool isPowerOfThree(int n) {
+        if (n < 1)
+            return false;
+        while (n != 1) {
+            if ((n % 3) != 0)
+                return false;
+            else
+                n /= 3;
+        }
+        return true;
     }
 
     bool isHappy(int n) {
