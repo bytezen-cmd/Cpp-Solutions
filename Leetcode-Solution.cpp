@@ -240,6 +240,23 @@ public:
         return false;
     }
 
+    int smallestEvenMultiple(int n) {
+        if (n % 2 == 0)
+            return n;
+        else
+            return (n * 2);
+    }
+
+    std::vector<int> separateDigits(std::vector<int>& nums) {
+        std::vector<int> output;
+        for (int i = 0; i < nums.size(); i++) {
+            std::string temp = std::to_string(nums[i]);
+            for (char c : temp)
+                output.push_back((int)c - '0');
+        }
+        return output;
+    }
+
     int isPrefixOfWord(std::string sentence, std::string searchWord) {
         size_t length = searchWord.length();
         std::stringstream sentence_t(sentence);
