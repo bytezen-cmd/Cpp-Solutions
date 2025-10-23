@@ -5,7 +5,20 @@
 
 
 namespace CodeforcesSolution {
-
+	void tram() {
+		int stops;
+		std::cin >> stops;
+		int maximumPassengers{ 0 };
+		int currentPassengers{ 0 };
+		for (int i = 0; i < stops; i++) {
+			int exit, enter;
+			std::cin >> exit >> enter;
+			currentPassengers += (enter - exit);
+			if (currentPassengers > maximumPassengers)
+				maximumPassengers = currentPassengers;
+		}
+		std::cout << maximumPassengers;
+	}
 	void word() {
 		std::string word;
 		std::cin >> word;
@@ -208,6 +221,6 @@ namespace CodeforcesSolution {
 };
 
 int main() {
-	CodeforcesSolution::wrongSubtraction();
+	CodeforcesSolution::tram();
 	return 0;
 }
