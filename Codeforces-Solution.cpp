@@ -5,6 +5,40 @@
 
 
 namespace CodeforcesSolution {
+
+	
+
+	void pizzaTime() {
+		int t;
+		std::cin >> t;
+		for (int i = 0; i < t; i++) {
+			int n;
+			std::cin >> n;
+			int countHao{ 0 };
+			while (n) {
+				if (n <= 2) {
+					n -= n;
+				}
+				else {
+					int m1{ 0 }, m3{ 0 };
+					if (n % 3 == 0) {
+						m1 = m3 = n / 3;
+					} 
+					else if (n % 3 == 1) {
+						m1 = n / 3;
+						m3 = (n / 3) + 1;
+					}
+					else {
+						m1 = n / 3;
+						m3 = (n / 3) + 2;
+					}
+					countHao += m1;
+					n = m3;
+				}
+			}
+			std::cout << countHao << '\n';
+		}
+	}
 	void tram() {
 		int stops;
 		std::cin >> stops;
