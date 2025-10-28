@@ -17,6 +17,17 @@ private:
     std::vector<int> happySequence;
 public:
 
+    bool threeConsecutiveOdds(std::vector<int>& arr) {
+        if (arr.size() < 3)
+            return false;
+        for (int index{ 0 }; index < arr.size() - 2; index++)
+            if ((arr[index] % 2 == arr[index + 1] % 2) &&
+                (arr[index + 1] % 2 == arr[index + 2] % 2) &&
+                (arr[index] % 2 == 1))
+                return true;
+        return false;
+    }
+
     std::vector<std::string> fizzBuzz(int n) {
         std::vector<std::string> answer;
         for (int i = 1; i < (n + 1); i++) {
