@@ -126,6 +126,7 @@
     <ClCompile Include="Codeforces-Solution.cpp" />
     <ClCompile Include="Codewars-Solution.cpp" />
     <ClCompile Include="extra.cpp" />
+    <ClCompile Include="HackerRank-Solution.cpp" />
     <ClCompile Include="Leetcode-Solution.cpp" />
   </ItemGroup>
   <ItemGroup>
