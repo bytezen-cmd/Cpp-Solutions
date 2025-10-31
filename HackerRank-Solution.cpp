@@ -1,8 +1,80 @@
 #include <vector>
-
+#include <iostream>
+#include <algorithm>
 
 
 namespace HackerRankSolution {
+
+    int luckBalance(int k, std::vector<std::vector<int>> contests) {
+        std::vector<int> surplus;
+        int output{ 0 };
+        for (int i{ 0 }; i < contests.size(); i++) {
+            if (contests[i][1] == 1) {
+                surplus.push_back(contests[i][0]);
+            }
+            else {
+                output += contests[i][0];
+            }
+        }
+        std::sort(surplus.begin(), surplus.end(), std::greater<int>());
+        for (int i{ 0 }; i < surplus.size(); i++) {
+            if (i >= k) {
+                output -= surplus[i];
+            }
+            else {
+                output += surplus[i];
+            }
+        }
+        return output;
+    }
+
+    int birthdayCakeCandles(std::vector<int> candles) {
+        int maximum{ 0 }, count{ 0 };
+        for (int n : candles)
+            if (maximum < n)
+                maximum = n;
+        for (int n : candles) {
+            if (n == maximum)
+                count++;
+        }
+        return count;
+    }
+
+    void miniMaxSum(std::vector<int> arr) {
+        std::sort(arr.begin(), arr.end());
+        long minimum{ 0 }, maximum{ 0 };
+        for (int i{ 0 }; i < 4; i++)
+            minimum += arr[i];
+        for (int i{ 1 }; i < 5; i++)
+            maximum += arr[i];
+        std::cout << minimum << ' ' << maximum;
+    }
+
+    void staircase(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < (n - i); j++) {
+                std::cout << " ";
+            }
+            for (int k = 0; k < i; k++) {
+                std::cout << "#";
+            }
+            std::cout << '\n';
+        }
+    }
+
+    void plusMinus(std::vector<int> arr) {
+        int countZero{ 0 }, countNegative{ 0 }, countPositive{ 0 };
+        for (int n : arr) {
+            if (n > 0)
+                countPositive += 1;
+            else if (n < 0)
+                countNegative += 1;
+            else
+                countZero += 1;
+        }
+        int total = countZero + countNegative + countPositive;
+        std::cout << (float)countPositive / total << '\n' << (float)countNegative / total << '\n' << (float)countZero / total;
+    }
 
     int diagonalDifference(std::vector<std::vector<int>> arr) {
         int d1{ 0 }, d2{ 0 };
