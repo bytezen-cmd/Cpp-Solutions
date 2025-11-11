@@ -5,6 +5,21 @@
 
 namespace HackerRankSolution {
 
+    std::vector<int> maximumPerimeterTriangle(std::vector<int> sticks) {
+        std::sort(sticks.begin(), sticks.end(), std::greater<int>());
+        std::vector<int> output;
+        for (int i{ 0 }; i < sticks.size() - 2; i++) {
+            int j{ i + 1 }, k{ i + 2 };
+            if (((sticks[i] + sticks[j]) > sticks[k]) && ((sticks[k] + sticks[i]) > sticks[j]) && ((sticks[j] + sticks[k]) > sticks[i])) {
+                output.push_back(sticks[k]); output.push_back(sticks[j]); output.push_back(sticks[i]);
+                return output;
+            }
+        }
+        output.push_back(-1);
+        return output;
+
+    }
+
     int luckBalance(int k, std::vector<std::vector<int>> contests) {
         std::vector<int> surplus;
         int output{ 0 };
