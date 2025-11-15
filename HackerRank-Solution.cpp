@@ -5,6 +5,65 @@
 
 namespace HackerRankSolution {
 
+    std::string kangaroo(int x1, int v1, int x2, int v2) {
+        while (true) {
+            if (x1 == x2)
+                return "YES";
+            else if (x1 > x2 && v1 < v2) {
+                x1 += v1;
+                x2 += v2;
+            }
+            else if (x1 < x2 && v1 > v2) {
+                x1 += v1;
+                x2 += v2;
+            }
+            else
+                return "NO";
+        }
+    }
+
+    void countApplesAndOranges(int s, int t, int a, int b, std::vector<int> apples, std::vector<int> oranges) {
+        std::vector<int> fallenApples;
+        std::vector<int> fallenOranges;
+        int appleCount{ 0 };
+        int orangeCount{ 0 };
+        for (int d : apples) {
+            fallenApples.push_back(a + d);
+        }
+        for (int d : oranges) {
+            fallenOranges.push_back(b + d);
+        }
+        for (int n : fallenApples) {
+            if (n <= t && n >= s) {
+                appleCount++;
+            }
+        }
+        for (int n : fallenOranges) {
+            if (n <= t && n >= s) {
+                orangeCount++;
+            }
+        }
+        std::cout << appleCount << '\n' << orangeCount;
+    }
+
+    std::vector<int> gradingStudents(std::vector<int> grades) {
+        std::vector<int> output;
+        for (int grade : grades) {
+            if (grade < 38) {
+                output.push_back(grade);
+            }
+            else {
+                if (((grade + 1) % 5) == 0)
+                    output.push_back(grade + 1);
+                else if (((grade + 2) % 5) == 0)
+                    output.push_back(grade + 2);
+                else
+                    output.push_back(grade);
+            }
+        }
+        return output;
+    }
+
     std::vector<int> maximumPerimeterTriangle(std::vector<int> sticks) {
         std::sort(sticks.begin(), sticks.end(), std::greater<int>());
         std::vector<int> output;

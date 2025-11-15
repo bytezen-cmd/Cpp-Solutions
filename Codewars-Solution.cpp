@@ -5,8 +5,57 @@
 #include <sstream>
 #include <unordered_map>
 #include <vector>
+#include <array>
+
+
 
 namespace CodewarsSolution {
+
+    std::array<int, 10> paint_letterboxes(int start, int end) {
+        std::array<int, 10> output;
+        for (int i{ 0 }; i < 10; i++)
+            output[i] = 0;
+        for (int i{ start }; i <= end; i++) {
+            std::string currentNumber = std::to_string(i);
+            std::size_t pos{};
+            for (char c : currentNumber) {
+                pos = (int)c - '0';
+                switch (c) {
+                case '0':
+                    output[pos]++;
+                    break;
+                case '1':
+                    output[pos]++;
+                    break;
+                case '2':
+                    output[pos]++;
+                    break;
+                case '3':
+                    output[pos]++;
+                    break;
+                case '4':
+                    output[pos]++;
+                    break;
+                case '5':
+                    output[pos]++;
+                    break;
+                case '6':
+                    output[pos]++;
+                    break;
+                case '7':
+                    output[pos]++;
+                    break;
+                case '8':
+                    output[pos]++;
+                    break;
+                case '9':
+                    output[pos]++;
+                    break;
+                }
+            }
+        }
+        return output;
+    }
 
     unsigned int countBits(unsigned long long n) {
         unsigned int count{ 0 };

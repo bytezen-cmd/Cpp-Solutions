@@ -17,6 +17,8 @@ private:
     std::vector<int> happySequence;
 public:
 
+
+
     bool threeConsecutiveOdds(std::vector<int>& arr) {
         if (arr.size() < 3)
             return false;
@@ -343,6 +345,26 @@ public:
         else
             return 0;
 
+    }
+
+    int hammingDistance(int x, int y) {
+        int b1[33], b2[33];
+        int index1{ 0 }, index2{ 0 };
+        while (x) {
+            b1[index1] = x % 2;
+            x /= 2;
+            index1++;
+        }
+        while (y) {
+            b2[index2] = y % 2;
+            y /= 2;
+            index2++;
+        }
+        int output{ 0 };
+        for (int i = 0; i < 33; i++) {
+            output += (b1[i] ^ b2[i]);
+        }
+        return output;
     }
 
 };
