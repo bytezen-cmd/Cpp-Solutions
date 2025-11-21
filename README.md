@@ -7,6 +7,8 @@
 
 A comprehensive collection of C++ solutions for algorithmic problems from leading competitive programming platforms: **Codeforces**, **LeetCode**, **Codewars**, and **HackerRank**. This repository demonstrates problem-solving techniques, algorithm design, and modern C++ best practices.
 
+Server link to the discord community: 
+![Code Den](https://discord.gg/TFD76mv8)
 ## 📚 Table of Contents
 
 - [Quick Start](#quick-start)
