@@ -5,6 +5,27 @@
 
 namespace HackerRankSolution {
 
+    int countResponseTimeRegressions(std::vector<int> responseTimes) {
+        if (responseTimes.size() > 1)
+        {
+            int output{ 0 };
+            for (size_t i = 1; i < responseTimes.size(); i++) {
+                float sum{ 0 }, count{ 0 };
+                for (size_t j = 0; j < i; j++) {
+                    sum += responseTimes[j];
+                    count++;
+                }
+                if (responseTimes[i] > (sum / count)) {
+                    output++;
+                }
+            }
+            return output;
+        }
+        else {
+            return 0;
+        }
+    }
+
     std::string kangaroo(int x1, int v1, int x2, int v2) {
         while (true) {
             if (x1 == x2)

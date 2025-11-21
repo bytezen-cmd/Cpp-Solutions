@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="30daysOfCode.cpp" />
     <ClCompile Include="Codeforces-Solution.cpp" />
     <ClCompile Include="Codewars-Solution.cpp" />
     <ClCompile Include="extra.cpp" />
